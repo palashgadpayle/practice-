@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage("git-pull") {
             steps { 
-                sh 'sudo apt-get update -y'
-                sh 'sudo apt-get install git -y'
+                sh '--sudo apt-get update -y'
+                sh '--sudo apt-get install git -y'
                 git branch: '*/master', credentialsId: 'new-tom', url: 'git@github.com:palashgadpayle/practice-.git'
                 sh 'ls'
             }
