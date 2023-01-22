@@ -5,7 +5,7 @@ pipeline {
             steps { 
                 sh 'sudo apt-get update -y'
                 sh 'sudo apt-get install git -y'
-                git credentialsId: 'one', url: 'git@github.com:nishantindorkar/student-ui.git'
+                git branch: '*/master', credentialsId: 'new-tom', url: 'git@github.com:palashgadpayle/practice-.git'
                 sh 'ls'
             }
         }
