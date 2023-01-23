@@ -36,7 +36,7 @@ pipeline {
                 #sudo ./aws/install
                 aws s3 cp s3://studentngpbckt/student-${BUILD_ID}.war .
                 curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.85/bin/apache-tomcat-8.5.85.tar.gz
-                sudo tar -xvf apache-tomcat-8.5.85.tar.gz -C /opt/
+                sudo tar -xvf apache-tomcat-8.5.85.tar.gz -C /home/ubuntu
                 sudo sh /opt/apache-tomcat-8.5.85/bin/shutdown.sh
                 sudo cp -rv student-${BUILD_ID}.war studentapp.war
                 sudo cp -rv studentapp.war /opt/apache-tomcat-8.5.85/webapps/
