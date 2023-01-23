@@ -26,7 +26,7 @@ pipeline {
         }
         stage('tomcat-build') {
             steps { 
-                withCredentials([sshUserPrivateKey(credentialsId: 'chote', keyFileVariable: 'agentkey', usernameVariable: 'ubuntu')]) {            
+                withCredentials([sshUserPrivateKey(credentialsId: 'new-id', keyFileVariable: 'agentkey', usernameVariable: 'ubuntu')]) {            
                 sh '''
                 ssh -i ${tomcat} -o StrictHostKeyChecking=no ubuntu@54.95.209.119<<EOF
                 sudo apt-get update -y
