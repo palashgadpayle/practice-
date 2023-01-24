@@ -39,8 +39,9 @@ pipeline {
                 sudo tar -xvf apache-tomcat-8.5.85.tar.gz -C /home/ubuntu
                 sudo sh /home/ubuntu/apache-tomcat-8.5.85/bin/shutdown.sh
                 sudo cp -rv /home/ubuntu/student-${BUILD_ID}.war /home/ubuntu/studentapp.war
-                sudo cp -rv /home/ubuntu/studentapp.war /home/ubuntu/apache-tomcat-8.5.85/webapps/
+                sudo cp -rv studentapp.war /home/ubuntu/apache-tomcat-8.5.85/webapps/
                 sudo sh /home/ubuntu/apache-tomcat-8.5.85/bin/startup.sh
+                sh 'pwd'
                 '''
                 }
             }
