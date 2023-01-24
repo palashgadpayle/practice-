@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'neweee'
+        label 'my-tomcat'
     }
     stages {
         stage('git-pull') {
