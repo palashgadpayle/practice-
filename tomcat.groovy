@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        lebel 'neweee'
+        label 'neweee'
     }
     stages {
         stage('git-pull') {
