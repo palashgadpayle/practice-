@@ -47,5 +47,32 @@ pipeline {
                 }
             }
         }
+         stage('slack notification') {
+          steps {
+    	    slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
+          }
+        }
+        stage('Email') {
+            steps {
+                script {
+                    def mailRecipients = 'gadpaylep7@gmail.com'
+                    def jobName = currentBuild.fullDisplayName
+                    emailext body: '''${SCRIPT, template="groovy-html.template"}''',
+                    mimeType: 'text/html',
+                    subject: "[Jenkins] ${jobName}",
+                    to: "${mailRecipients}",
+                    replyTo: "${mailRecipients}",
+                    recipientProviders: [[$class: 'CulpritsRecipientProvider']]
+                }
+            }
+        }  
     }
+    // post {
+    //     always {
+    //         emailext body: 'Hello, tomcat server started', 
+    //         recipientProviders: [[$class: 'DevelopersRecipientProvider'], 
+    //         [$class: 'RequesterRecipientProvider']], 
+    //         subject: 'Apache Tomcat started'
+    //     }
+    // }
 }
